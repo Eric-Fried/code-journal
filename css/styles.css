@@ -1,4 +1,45 @@
-header {
+body {
+  background-color: #eee;
+}
+
+header,
+button {
   background-color: #4c2474;
   color: #fdfafd;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+input,
+label {
+  display: block;
+  width: 100%;
+}
+
+label {
+  font-weight: bolder;
+}
+
+input {
+  height: 30px;
+}
+
+input,
+textarea {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #a2a2a3;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 100%;
+  display: block;
+}
+
+button {
+  height: 25px;
 }
