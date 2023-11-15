@@ -1,4 +1,4 @@
-// /* global data */
+/* global data */
 const $photoURL = document.querySelector('#URL');
 const $img = document.querySelector('#preview');
 
@@ -10,8 +10,9 @@ function handleInput(event) {
 }
 
 const $entryForm = document.querySelector('#entry-form');
-console.dir($entryForm);
-console.log($entryForm.elements);
+console.dir('$entryForm', $entryForm);
+console.log('$entryForm.elements', $entryForm.elements);
+console.log('data.nextentryid', data.nextEntryId);
 $entryForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
@@ -20,9 +21,16 @@ function handleSubmit(event) {
 
   const entryFormValues = {
     title: $entryForm.title.value,
-    URL: $entryForm.URL.value,
-    Notes: $entryForm.Notes.value,
+    url: $entryForm.URL.value,
+    notes: $entryForm.notes.value,
+    entryId: data.nextEntryId,
   };
 
+  data.nextEntryId++;
+  console.log(data.nextEntryId);
   console.log(entryFormValues);
+  data.entries.unshift(entryFormValues);
+  console.log(data.entries);
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $entryForm.reset();
 }
