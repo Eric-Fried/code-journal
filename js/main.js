@@ -10,14 +10,14 @@ function handleInput(event) {
 }
 
 const $entryForm = document.querySelector('#entry-form');
-console.dir('$entryForm', $entryForm);
-console.log('$entryForm.elements', $entryForm.elements);
-console.log('data.nextentryid', data.nextEntryId);
+console.dir('$entryForm:', $entryForm);
+console.log('$entryForm.elements:', $entryForm.elements);
+console.log('data.nextentryid:', data.nextEntryId);
 $entryForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log($entryForm.elements);
+  console.log('$entryForm.elements:', $entryForm.elements);
 
   const entryFormValues = {
     title: $entryForm.title.value,
@@ -27,10 +27,10 @@ function handleSubmit(event) {
   };
 
   data.nextEntryId++;
-  console.log(data.nextEntryId);
-  console.log(entryFormValues);
+  console.log('data.nextEntryID:', data.nextEntryId);
+  console.log('entryFormValues:', entryFormValues);
   data.entries.unshift(entryFormValues);
-  console.log(data.entries);
+  console.log('data.entries:', data.entries);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $entryForm.reset();
 }
