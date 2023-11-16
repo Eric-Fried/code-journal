@@ -65,3 +65,16 @@ function handleDOMContent(event) {
     $ul.appendChild(newEntry);
   }
 }
+
+// const $noEntriesMessage = document.getElementById('noEntries')
+
+// // function toggleNoEntries () {
+
+// //   if (data.entries===0) {
+// //     $noEntriesMessage.classList.remove('hidden')
+// //   }
+// //   else {
+// //     $noEntriesMessage.classList.add('hidden')
+// //   }
+
+// // }
