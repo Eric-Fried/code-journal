@@ -27,24 +27,39 @@ function handleSubmit(event) {
   $entryForm.reset();
 }
 
-// function renderEntry (entry) {
+function renderEntry(entry) {
+  const $li = document.createElement('li');
+  $li.setAttribute('class', 'row');
 
-//   const $li =document.createElement("li");
-//   $li.setAttribute('class', 'row');
+  const $imgWrapper = document.createElement('div');
+  $imgWrapper.setAttribute('class', 'column-half');
 
-//   const $imgWrapper =document.createElement('div')
-//   $imgWrapper.setAttribute('class', 'column-half')
+  const $img = document.createElement('img');
+  $img.setAttribute('src', entry.url);
 
-//   const $img = document.createElement('img')
-//   $img.setAttribute ('src', entry.url)
+  const $contentWrapper = document.createElement('div');
+  $contentWrapper.setAttribute('class', 'column-half');
 
-//   const $contentWrapper =document.createElement('div')
-//   $contentWrapper.setAttribute('class', 'column-half')
+  const $title = document.createElement('h3');
+  $title.textContent = entry.title;
 
-//   const $title =document.createElement('h3')
-//   $title.textContent =entry.title
+  const $notes = document.createElement('p');
+  $notes.textContent = entry.notes;
 
-//   const $notes = document.createElement('p')
-//   $notes.textContent= entry.notes
+  $li.appendChild($imgWrapper);
+  $imgWrapper.appendChild($img);
+  $li.appendChild($contentWrapper);
+  $contentWrapper.appendChild($title);
+  $contentWrapper.appendChild($notes);
+}
 
-// }
+const $ul = document.querySelector('.ul');
+
+document.addEventListener('DOMContentLoaded', handleDOMContent);
+
+function handleDOMContent(event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    const newEntry = renderEntry(data.entries[i]);
+    $ul.appendChild(newEntry);
+  }
+}
