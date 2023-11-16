@@ -51,6 +51,8 @@ function renderEntry(entry) {
   $li.appendChild($contentWrapper);
   $contentWrapper.appendChild($title);
   $contentWrapper.appendChild($notes);
+
+  return $li;
 }
 
 const $ul = document.querySelector('.ul');
