@@ -51,10 +51,13 @@ button {
 
 .entries-link {
   color: #fdfafd;
+  margin-left: 1rem;
+  text-decoration: none;
 }
 
 .nav-bar {
   display: flex;
+  align-items: center;
 }
 
 .new-button {

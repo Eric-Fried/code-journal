@@ -25,6 +25,10 @@ function handleSubmit(event) {
   data.entries.unshift(entryFormValues);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $entryForm.reset();
+
+  $ul.prepend(renderEntry(entryFormValues));
+  viewSwap('entries');
+  toggleNoEntries();
 }
 
 function renderEntry(entry) {
@@ -64,20 +68,19 @@ function handleDOMContent(event) {
     const newEntry = renderEntry(data.entries[i]);
     $ul.appendChild(newEntry);
   }
+  toggleNoEntries();
+  viewSwap(data.view);
 }
 
-// const $noEntriesMessage = document.getElementById('noEntries')
+const $noEntriesMessage = document.getElementById('noEntries');
 
-// function toggleNoEntries () {
-
-//   if (data.entries===0) {
-//     $noEntriesMessage.classList.remove('hidden')
-//   }
-//   else {
-//     $noEntriesMessage.classList.add('hidden')
-//   }
-
-// }
+function toggleNoEntries() {
+  if (data.entries.length === 0) {
+    $noEntriesMessage.classList.remove('hidden');
+  } else {
+    $noEntriesMessage.classList.add('hidden');
+  }
+}
 
 const $dataViewEntryForm = document.querySelector("[data-view='entry-form']");
 const $dataViewEntries = document.querySelector("[data-view='entries']");
@@ -85,19 +88,26 @@ const $dataViewEntries = document.querySelector("[data-view='entries']");
 function viewSwap(nameOfView) {
   if (nameOfView === 'entries') {
     $dataViewEntryForm.className = 'entry-form hidden';
+    $dataViewEntries.className = 'entries';
     data.view = nameOfView;
   } else if (nameOfView === 'entry-form') {
     $dataViewEntries.className = 'entries hidden';
+    $dataViewEntryForm.className = 'entry-form';
     data.view = nameOfView;
   }
 }
 
 const $entriesNavBar = document.querySelector('.entries-link');
-console.log($entriesNavBar);
+
+const $newButton = document.querySelector('.new-button');
+$newButton.addEventListener('click', handleClicktwo);
 
 $entriesNavBar.addEventListener('click', handleClick);
 
 function handleClick(event) {
-  event.preventDefault();
   viewSwap('entries');
+}
+
+function handleClicktwo(event) {
+  viewSwap('entry-form');
 }
