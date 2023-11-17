@@ -68,13 +68,36 @@ function handleDOMContent(event) {
 
 // const $noEntriesMessage = document.getElementById('noEntries')
 
-// // function toggleNoEntries () {
+// function toggleNoEntries () {
 
-// //   if (data.entries===0) {
-// //     $noEntriesMessage.classList.remove('hidden')
-// //   }
-// //   else {
-// //     $noEntriesMessage.classList.add('hidden')
-// //   }
+//   if (data.entries===0) {
+//     $noEntriesMessage.classList.remove('hidden')
+//   }
+//   else {
+//     $noEntriesMessage.classList.add('hidden')
+//   }
 
-// // }
+// }
+
+const $dataViewEntryForm = document.querySelector("[data-view='entry-form']");
+const $dataViewEntries = document.querySelector("[data-view='entries']");
+
+function viewSwap(nameOfView) {
+  if (nameOfView === 'entries') {
+    $dataViewEntryForm.className = 'entry-form hidden';
+    data.view = nameOfView;
+  } else if (nameOfView === 'entry-form') {
+    $dataViewEntries.className = 'entries hidden';
+    data.view = nameOfView;
+  }
+}
+
+const $entriesNavBar = document.querySelector('.entries-link');
+console.log($entriesNavBar);
+
+$entriesNavBar.addEventListener('click', handleClick);
+
+function handleClick(event) {
+  event.preventDefault();
+  viewSwap('entries');
+}
