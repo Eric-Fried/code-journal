@@ -43,3 +43,37 @@ textarea {
 button {
   height: 25px;
 }
+
+.save-button-wrapper {
+  display: flex;
+  justify-content: right;
+}
+
+.entries-link {
+  color: #fdfafd;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+}
+
+.new-button {
+  display: block;
+  height: 28px;
+  width: 50px;
+  background-color: #4c2474;
+  color: #fdfafd;
+  text-align: center;
+  border: solid thin;
+  text-decoration: none;
+  padding-top: 4px;
+}
+
+.button-column {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
