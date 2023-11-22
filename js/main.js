@@ -33,7 +33,11 @@ function handleSubmit(event) {
       }
     }
 
-    renderEntry(entryFormValues);
+    const callRenderEntry = renderEntry(entryFormValues);
+    const $currentEdit = document.querySelector([`${data.editing.entryId}`]);
+    $currentEdit.replaceWith(callRenderEntry);
+    $entryHeader.textContent = 'New Entry';
+    data.editing = null;
   }
   console.log(data.entries);
 }
