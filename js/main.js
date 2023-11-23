@@ -34,21 +34,19 @@ function handleSubmit(event) {
     }
 
     const callRenderEntry = renderEntry(entryFormValues);
-    const $currentEdit = document.querySelector([`${data.editing.entryId}`]);
+    const $currentEdit = document.querySelector(
+      `[data-entry-id="${data.editing.entryId}"]`
+    );
     $currentEdit.replaceWith(callRenderEntry);
     $entryHeader.textContent = 'New Entry';
     data.editing = null;
   }
-  console.log(data.entries);
 }
 function renderEntry(entry) {
   const $li = document.createElement('li');
   $li.setAttribute('class', 'row');
   $li.setAttribute('data-entry-id', entry.entryId);
-  console.log(
-    'Data Entry Id attribute value: ',
-    $li.getAttribute('data-entry-id')
-  );
+
   const $imgWrapper = document.createElement('div');
   $imgWrapper.setAttribute('class', 'column-half');
   const $img = document.createElement('img');
@@ -127,7 +125,6 @@ function handlePencilCLick(event) {
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId.toString() === closestDataEntry) {
         data.editing = data.entries[i];
-        console.log(data.editing);
       }
     }
     $img.src = data.editing.url;
@@ -137,5 +134,4 @@ function handlePencilCLick(event) {
     $entryHeader.textContent = 'Edit Entry';
     viewSwap('entry-form');
   }
-  console.log(data.editing);
 }
