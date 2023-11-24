@@ -73,7 +73,6 @@ function renderEntry(entry) {
 const $ul = document.querySelector('.ul');
 document.addEventListener('DOMContentLoaded', handleDOMContent);
 function handleDOMContent(event) {
-  // debugger
   for (let i = 0; i < data.entries.length; i++) {
     const newEntry = renderEntry(data.entries[i]);
     $ul.appendChild(newEntry);
