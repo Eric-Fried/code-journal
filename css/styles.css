@@ -77,3 +77,9 @@ button {
   justify-content: right;
   align-items: center;
 }
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
