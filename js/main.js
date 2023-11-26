@@ -103,12 +103,12 @@ function viewSwap(nameOfView) {
 }
 const $entriesNavBar = document.querySelector('.entries-link');
 const $newButton = document.querySelector('.new-button');
-$newButton.addEventListener('click', handleClicktwo);
-$entriesNavBar.addEventListener('click', handleClick);
-function handleClick(event) {
+$newButton.addEventListener('click', handleEntryFormClick);
+$entriesNavBar.addEventListener('click', handleEntriesClick);
+function handleEntriesClick(event) {
   viewSwap('entries');
 }
-function handleClicktwo(event) {
+function handleEntryFormClick(event) {
   viewSwap('entry-form');
 }
 $ul.addEventListener('click', handlePencilCLick);
@@ -116,6 +116,7 @@ const $entryHeader = document.querySelector('.entry-header');
 const $title = document.querySelector('#title');
 const $URL = document.querySelector('#URL');
 const $notes = document.querySelector('#notes');
+// const $deleteButtonContainer =document.querySelector (".delete-entry-wrapper")
 function handlePencilCLick(event) {
   if (event.target.tagName === 'I') {
     const closestDataEntry = event.target
@@ -130,7 +131,22 @@ function handlePencilCLick(event) {
     $title.value = data.editing.title;
     $URL.value = data.editing.url;
     $notes.value = data.editing.notes;
+    $deleteButton.setAttribute('class', 'delete-button');
     $entryHeader.textContent = 'Edit Entry';
+
     viewSwap('entry-form');
   }
+}
+
+const $modalStatus = document.querySelector('.modal-container');
+const $deleteButton = document.querySelector('.delete-button');
+const $modalButton = document.querySelector('.modal-reject-button');
+$deleteButton.addEventListener('click', handleDeleteClick);
+function handleDeleteClick(event) {
+  console.log('running delete click');
+  $modalStatus.className = 'modal-container';
+}
+$modalButton.addEventListener('click', handleModalClick);
+function handleModalClick(event) {
+  $modalStatus.className = 'modal-container hidden';
 }

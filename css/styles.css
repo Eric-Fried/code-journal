@@ -83,3 +83,62 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+
+.delete-entry-wrapper {
+  display: flex;
+  justify-content: left;
+}
+
+.buttons-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background-color: rgb(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  background-color: white;
+  height: 20vh;
+  width: 50vw;
+}
+
+.modal-reject-button {
+  background-color: #eb5d5d;
+  color: white;
+  border: solid #eb5d5d;
+  border-radius: 5%;
+  width: 100px;
+  height: 30px;
+}
+
+.modal-confirm-button {
+  background-color: #b6b6b6;
+  color: black;
+  border: solid #b6b6b6;
+  border-radius: 5%;
+  width: 100px;
+  height: 30px;
+}
+
+.modal-button-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.modal-message {
+  font-weight: 600;
+  font-size: large;
+  font-family: sans-serif;
+}
