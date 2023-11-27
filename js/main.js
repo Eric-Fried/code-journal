@@ -140,13 +140,27 @@ function handlePencilCLick(event) {
 
 const $modalStatus = document.querySelector('.modal-container');
 const $deleteButton = document.querySelector('.delete-button');
-const $modalButton = document.querySelector('.modal-reject-button');
+const $modalRejectButton = document.querySelector('.modal-reject-button');
+const $modalConfirmButton = document.querySelector('.modal-confirm-button');
 $deleteButton.addEventListener('click', handleDeleteClick);
 function handleDeleteClick(event) {
   console.log('running delete click');
   $modalStatus.className = 'modal-container';
 }
-$modalButton.addEventListener('click', handleModalClick);
-function handleModalClick(event) {
+$modalRejectButton.addEventListener('click', handleModalRejectClick);
+function handleModalRejectClick(event) {
   $modalStatus.className = 'modal-container hidden';
+}
+
+$modalConfirmButton.addEventListener('click', handleModalConfirmClick);
+function handleModalConfirmClick(event) {
+  // const $liList= document.querySelectorAll('li')
+  //  const closestDataEntry = event.target.closest('li').getAttribute('data-entry-id');
+  // for (let i=0; i<data.entries.length; i++){
+  //  if(data.entries[i].entryId.toString() === closestDataEntry){
+  //   data.entries.splice(i);
+  //  }
+
+  // }
+  console.log(data.entries);
 }
